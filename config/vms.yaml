@@ -1,0 +1,28 @@
+---
+ # Hashicorp boxes are used by default as per vms.yaml, but there are options
+ # for other boxes in the boxes.yaml file.
+vms:
+  #======================================#
+  # Puppet Master machine                #
+  #======================================#
+  - name: master.inf.puppetlabs.demo
+    box: puppetlabs/centos-7.0-64-nocm
+    roles:
+      - master
+      - el_base
+      - el_stop_firewall
+      - trusted_fact_pe_aio_2015_3
+
+  - name: ubuntu1404.puppetlabs.demo
+    box: puppetlabs/ubuntu-14.04-64-nocm
+    roles:
+      - pe_agent
+      - el_base
+      - trusted_fact_pe_node
+
+  - name: centos70.puppetlabs.demo
+    box: puppetlabs/centos-7.0-64-nocm
+    roles:
+      - pe_agent
+      - el_base
+      - trusted_fact_pe_node
